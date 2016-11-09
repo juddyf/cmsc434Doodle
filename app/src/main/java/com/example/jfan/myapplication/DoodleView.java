@@ -18,7 +18,7 @@ import java.util.Random;
  */
 
 public class DoodleView extends View {
-    private Paint _paintDoodle = new Paint();
+    private Paint _paintDoodle = new Paint(), _canvasPaint;
     private Path _path = new Path();
     private boolean clearCanvas = false;
     private Canvas _canvas;
@@ -49,6 +49,21 @@ public class DoodleView extends View {
         _paintDoodle.setStyle(Paint.Style.STROKE);
         _paintDoodle.setStrokeJoin(Paint.Join.ROUND);
         _paintDoodle.setStrokeCap(Paint.Cap.ROUND);
+        _paintDoodle.setDither(true);
+        _canvasPaint = new Paint(Paint.DITHER_FLAG);
+    }
+
+    private Paint newPaint() {
+        Paint p = new Paint();
+        p.setColor(_paintDoodle.getColor());
+        p.setAntiAlias(true);
+        p.setStyle(Paint.Style.STROKE);
+        p.setStrokeJoin(Paint.Join.ROUND);
+        p.setStrokeCap(Paint.Cap.ROUND);
+        p.setStrokeWidth(_paintDoodle.getStrokeWidth());
+        p.setAlpha(_paintDoodle.getAlpha());
+
+        return p;
     }
 
     @Override
@@ -68,7 +83,7 @@ public class DoodleView extends View {
             clearCanvas = false;
             _path.reset();
         } else {
-            canvas.drawBitmap(_bitmap, 0, 0, _paintDoodle);
+            canvas.drawBitmap(_bitmap, 0, 0, _canvasPaint);
             canvas.drawPath(_path, _paintDoodle);
         }
     }
@@ -122,7 +137,9 @@ public class DoodleView extends View {
 
     public void changeOpacity(int opacity) {
         invalidate();
-        _paintDoodle.setAlpha(opacity);
+        Paint p = newPaint();
+        p.setAlpha(opacity);
+        _paintDoodle = p;
         curOpacity = opacity;
     }
 
