@@ -87,7 +87,7 @@ public class DoodleView extends View {
 
                     _paintDoodle.setColor(Color.argb(1, rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)));
                     _paintDoodle.setStrokeWidth(rand.nextInt(50));
-                    _paintDoodle.setAlpha(rand.nextInt(100));
+                    _paintDoodle.setAlpha(rand.nextInt(100) + 155);
                 }
 
                 break;

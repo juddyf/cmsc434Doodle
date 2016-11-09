@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.ToggleButton;
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickBrushSet(View v) {
-        BrushSettingsView bsv = (BrushSettingsView) findViewById(R.id.brushSettings);
+        RelativeLayout bsv = (RelativeLayout) findViewById(R.id.brushSettings);
         Button brushButton = (Button) findViewById(R.id.brushSet);
 
         if (bsv.getVisibility() == View.VISIBLE) {
