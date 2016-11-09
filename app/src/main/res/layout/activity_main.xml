@@ -14,8 +14,216 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/doodleView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Brush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/brushSet"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="17dp" />
+        android:onClick="onClickBrushSet"/>
+
+    <Button
+        android:text="Clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/ClearButton"
+        android:onClick="onClickClearButton" />
+
+    <com.example.jfan.myapplication.BrushSettingsView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/brushSettings"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#ffffffff"
+        android:padding="10px">
+
+        <TextView
+            android:id="@+id/colorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Choose Color"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/colorText"
+            android:background="#000000"
+            android:id="@+id/colorPreview"/>
+
+        <TextView
+            android:text="Hue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hueLabel"
+            android:layout_alignBottom="@+id/hueSeekbar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="15dp" />
+
+        <SeekBar
+            android:layout_width="300px"
+            android:layout_height="75px"
+            android:id="@+id/hueSeekbar"
+            android:layout_marginTop="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:max="360"
+            android:progress="0"/>
+
+        <TextView
+            android:text="Saturation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/saturationLabel"
+            android:layout_alignBottom="@+id/saturationSeekbar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="15dp" />
+
+        <SeekBar
+            android:layout_width="300px"
+            android:layout_height="75px"
+            android:id="@+id/saturationSeekbar"
+            android:layout_marginTop="75dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:max="100"
+            android:progress="0"/>
+
+        <TextView
+            android:text="Brightness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/brightnessLabel"
+            android:layout_alignBottom="@+id/brightessSeekbar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="15dp" />
+
+        <SeekBar
+            android:layout_width="300px"
+            android:layout_height="75px"
+            android:id="@+id/brightessSeekbar"
+            android:layout_marginTop="125dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:max="100"
+            android:progress="0"/>
+
+
+        <TextView
+            android:id="@+id/opacity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Choose Opacity"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_alignTop="@id/brightnessLabel"
+            android:layout_marginTop="75px"/>
+
+        <TextView
+            android:text="Opacity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/opacityLabel"
+            android:layout_alignBottom="@+id/opacitySeekbar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="15dp" />
+
+        <SeekBar
+            android:layout_width="300px"
+            android:layout_height="75px"
+            android:id="@+id/opacitySeekbar"
+            android:layout_marginTop="25dp"
+            android:layout_alignTop="@id/opacity"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:progress="255"
+            android:max="255"/>
+
+        <TextView
+            android:id="@+id/size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Choose Size"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_alignTop="@id/opacityLabel"
+            android:layout_marginTop="75px"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="1px"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/size"
+            android:background="#000000"
+            android:id="@+id/sizePreview"/>
+
+        <TextView
+            android:text="Size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sizeLabel"
+            android:layout_alignBottom="@+id/sizeSeekbar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="15dp" />
+
+        <SeekBar
+            android:layout_width="300px"
+            android:layout_height="75px"
+            android:id="@+id/sizeSeekbar"
+            android:layout_marginTop="25dp"
+            android:layout_alignTop="@id/size"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:progress="0"
+            android:max="50"/>
+    </com.example.jfan.myapplication.BrushSettingsView>
+
+    <ToggleButton
+        android:text="Randomize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/randomToggle"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:onClick="onClickRandomize"/>
+
+    <TextView
+        android:text="Randomize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/randomtext"
+        android:layout_alignBottom="@id/randomToggle"
+        android:layout_marginBottom="70px"
+        android:layout_centerInParent="true"
+        android:onClick="onClickRandomize"/>
 </RelativeLayout>
